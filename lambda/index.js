@@ -35,7 +35,7 @@ const HelpIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say "What week is it" or "What''s the week". Try it!';
+        const speakOutput = 'You can say "What week is it" or "What\'s the week". Try it!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
