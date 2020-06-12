@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say "What week is it?" or Help. Which would you like to try?';
+        const speakOutput = 'Welcome, you can say "What week is it" or Help. Which would you like to try?';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -35,7 +35,7 @@ const HelpIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say "What week is it?" Try it!';
+        const speakOutput = 'You can say "What week is it" or "What''s the week". Try it!';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
