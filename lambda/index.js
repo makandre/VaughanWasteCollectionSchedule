@@ -36,7 +36,6 @@ const HelpIntentHandler = {
     },
     handle(handlerInput) {
         const speakOutput = 'You can say "What week is it?" Try it!';
-
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
