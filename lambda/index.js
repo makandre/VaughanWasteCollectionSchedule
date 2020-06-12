@@ -25,14 +25,14 @@ const CheckScheduleIntentHandler = {
         
         const date = new Date();
     
-        // if Sunday, advance by 1 day to account for week starting on Monday
+        // if Sunday, advance by 1 day to account for the week starting on Monday
         if (date.getDay() === 0)
             date.setDate(date.getDate() + 1);
         
         const week = currentWeekNumber(date);
         const colour = week % 2 === 0 ? 'blue' : 'yellow';
         
-        const speakOutput = `It is currently a ${colour} week.`;
+        const speakOutput = `Week ${week} is a ${colour} week.`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
