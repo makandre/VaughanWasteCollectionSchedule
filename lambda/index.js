@@ -30,8 +30,11 @@ const CheckScheduleIntentHandler = {
 };
 const HelpIntentHandler = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
+        if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest') {
+            const intent = Alexa.getIntentName(handlerInput.requestEnvelope);
+            return intent === 'AMAZON.HelpIntent' || intent === 'AMAZON.FallbackIntent';
+        }
+        return false;
     },
     handle(handlerInput) {
         const speakOutput = 'You can say "What week is it?" Try it!';
