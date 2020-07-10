@@ -65,6 +65,16 @@ const CheckPickupIntentHandler = {
     }
 };
 
+const SkillDisabledEventHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
+    },
+    handle(handlerInput) {
+        const userId = handlerInput.requestEnvelope.context.System.user.userId;
+        // TODO
+    },
+};
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -149,6 +159,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         CheckScheduleIntentHandler,
         CheckPickupIntentHandler,
+        SkillDisabledEventHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
