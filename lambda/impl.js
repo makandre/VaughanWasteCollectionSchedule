@@ -14,17 +14,16 @@ const getWeek = () => {
     return { week, colour };
 };
 
-const checkSchedule = () => {
+module.exports.checkSchedule = () => {
     
     const week = getWeek();
         
     return `Week ${week.week} is a ${week.colour} week.`;
 };
 
-const checkPickup = () => {
+module.exports.checkPickup = () => {
 
     const week = getWeek();
         
     return `It is garbage pickup week if you live in a ${week.colour} zone.`;
 };
-
