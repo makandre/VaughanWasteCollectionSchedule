@@ -2,7 +2,8 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
-const currentWeekNumber = require('current-week-number');
+const impl = require('./impl')
+//const currentWeekNumber = require('current-week-number');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -31,7 +32,7 @@ const ZoneIntentHandler = {
     }
 };
 
-const getWeek = () => {
+/*const getWeek = () => {
     
     const date = new Date();
     
@@ -43,7 +44,7 @@ const getWeek = () => {
     const colour = week % 2 === 0 ? 'blue' : 'yellow';
     
     return { week, colour };
-};
+};*/
 
 const CheckScheduleIntentHandler = {
     canHandle(handlerInput) {
@@ -51,10 +52,7 @@ const CheckScheduleIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckScheduleIntent';
     },
     handle(handlerInput) {
-        
-        const week = getWeek();
-        
-        const speakOutput = `Week ${week.week} is a ${week.colour} week.`;
+        const speakOutput = impl.checkSchedule();
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
