@@ -26,7 +26,7 @@ const ZoneIntentHandler = {
         const speakOutput = impl.zone(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            .reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt('I\'m listening. Try again.')
             .getResponse();
     }
 };
