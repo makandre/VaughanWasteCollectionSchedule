@@ -8,9 +8,9 @@ module.exports.zone = async (requestEnvelope) => {
     if (zone !== 'blue' && zone !== 'yellow')
         return `${zone} is not a valid zone. Valid zones are blue or yellow. Please try again.`
 
-    const userId = requestEnvelope.context.System.user.userId;
+    await db.setZone(requestEnvelope.context.System.user.userId, zone);
     
-    return await db.getZone(userId);
+    return 'Ok, I will remember that. Now how may I help you?';
 };
 
 const getWeek = () => {

@@ -29,6 +29,34 @@ const getDB = async () => {
     });
 };
 
+module.exports.setZone = async (userId, zone) => {
+
+    const db = await getDB();
+
+    const params = {
+        Item: {
+            userId: {
+                S: userId
+            },
+            zone: {
+                S: zone
+            }
+        },
+        TableName: TABLE
+    };
+
+    return new Promise((resolve, reject) => {
+
+        db.putItem(params, (err, data) => {
+            
+            if (err)
+                return reject(err)
+            
+            resolve();
+        });
+    });
+};
+
 module.exports.getZone = async (userId) => {
 
     const db = await getDB();
