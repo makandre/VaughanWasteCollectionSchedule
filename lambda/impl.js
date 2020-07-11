@@ -1,5 +1,5 @@
-const currentWeekNumber = require('current-week-number');
 const db = require('./db');
+const currentWeekNumber = require('current-week-number');
 
 module.exports.zone = async (requestEnvelope) => {
 
