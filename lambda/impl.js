@@ -17,11 +17,15 @@ const getWeek = () => {
 
 module.exports.zone = async (requestEnvelope) => {
 
+    const zone = requestEnvelope.request.intent.slots.zone.value;
+
     const userId = requestEnvelope.context.System.user.userId;
+    
 
-    const zone = await db.getZone(userId);
 
-    return zone;
+    const tmp = await db.getZone(zone);
+
+    return tmp;
 };
 
 module.exports.checkSchedule = (requestEnvelope) => {
