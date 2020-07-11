@@ -102,8 +102,8 @@ const SkillDisabledEventHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
     },
-    handle(handlerInput) {
-        impl.deZone(handlerInput.requestEnvelope)
+    async handle(handlerInput) {
+        await impl.deZone(handlerInput.requestEnvelope)
     },
 };
 

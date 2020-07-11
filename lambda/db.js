@@ -84,3 +84,28 @@ module.exports.getZone = async (userId) => {
         });
     });
 };
+
+module.exports.removeZone = async (userId) => {
+
+    const db = await getDB();
+
+    const params = {
+        Key: {
+            userId: {
+                S: userId
+            }
+        }, 
+        TableName: TABLE
+    };
+
+    return new Promise((resolve, reject) => {
+
+        db.deleteItem(params, (err, data) => {
+            
+            if (err)
+                return reject(err)
+            
+            resolve();
+        });
+    });
+};

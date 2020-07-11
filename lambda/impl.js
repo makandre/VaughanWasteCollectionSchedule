@@ -63,8 +63,5 @@ module.exports.checkPickup = async (requestEnvelope) => {
 };
 
 module.exports.deZone = (requestEnvelope) => {
-
-    const userId = requestEnvelope.context.System.user.userId;
-
-    // TODO
+    return db.removeZone(requestEnvelope.context.System.user.userId);
 };
