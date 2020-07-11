@@ -22,7 +22,6 @@ module.exports.zone = async (requestEnvelope) => {
     const userId = requestEnvelope.context.System.user.userId;
     
 
-
     const tmp = await db.getZone(zone);
 
     return tmp;
