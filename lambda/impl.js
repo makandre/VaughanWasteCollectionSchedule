@@ -20,7 +20,7 @@ module.exports.zone = (requestEnvelope) => {
 
     // TODO
 
-    return userId;
+    return 'to do';
 };
 
 module.exports.checkSchedule = (requestEnvelope) => {
