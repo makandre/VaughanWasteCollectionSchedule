@@ -34,7 +34,7 @@ module.exports.getZone = async (userId) => {
     const params = {
         Key: {
             userId: {
-                S: userId
+                S: 'valerie'
             }
         }, 
         TableName: "VaughanZones"
