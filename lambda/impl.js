@@ -46,10 +46,19 @@ module.exports.checkSchedule = async (requestEnvelope) => {
     return `Week ${week.week} is ${answer} week.`;
 };
 
-module.exports.checkPickup = (requestEnvelope) => {
+module.exports.checkPickup = async (requestEnvelope) => {
 
     const week = getWeek();
-        
+    
+    try {
+        const zone = await db.getZone(requestEnvelope.context.System.user.userId);
+        if (zone)
+            return zone === week.colour ? 'Yes, it is garbage pickup week.' : 'No, garbage pickup is next week.';
+    }
+    catch (err) {
+        console.warn('Failed to get zone: ' + err.message);
+    }
+
     return `It is garbage pickup week if you live in a ${week.colour} zone.`;
 };
 
