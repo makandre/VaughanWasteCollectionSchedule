@@ -28,7 +28,7 @@
           "slots": [],
           "samples": [
             "what week is it",
-            "what\u0027s the week"
+            "what's the week"
           ]
         },
         {
@@ -36,6 +36,19 @@
           "slots": [],
           "samples": [
             "is it garbage pickup week"
+          ]
+        },
+        {
+          "name": "ZoneIntent",
+          "slots": [
+            {
+              "name": "zone",
+              "type": "AMAZON.Color"
+            }
+          ],
+          "samples": [
+            "I live in the {zone} zone",
+            "I live in a {zone} zone"
           ]
         }
       ],
@@ -47,5 +60,5 @@
       }
     }
   },
-  "version": "2"
+  "version": "8"
 }
