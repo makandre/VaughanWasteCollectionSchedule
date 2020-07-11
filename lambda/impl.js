@@ -14,16 +14,32 @@ const getWeek = () => {
     return { week, colour };
 };
 
-module.exports.checkSchedule = () => {
+module.exports.zone = (requestEnvelope) => {
+
+    const userId = requestEnvelope.context.System.user.userId;
+
+    // TODO
+
+    return userId;
+};
+
+module.exports.checkSchedule = (requestEnvelope) => {
     
     const week = getWeek();
         
     return `Week ${week.week} is a ${week.colour} week.`;
 };
 
-module.exports.checkPickup = () => {
+module.exports.checkPickup = (requestEnvelope) => {
 
     const week = getWeek();
         
     return `It is garbage pickup week if you live in a ${week.colour} zone.`;
+};
+
+module.exports.deZone = (requestEnvelope) => {
+
+    const userId = requestEnvelope.context.System.user.userId;
+
+    // TODO
 };

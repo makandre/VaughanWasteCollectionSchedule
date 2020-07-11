@@ -3,7 +3,6 @@
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
 const impl = require('./impl')
-//const currentWeekNumber = require('current-week-number');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -24,27 +23,13 @@ const ZoneIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ZoneIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'TODO';
+        const speakOutput = impl.zone(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
-
-/*const getWeek = () => {
-    
-    const date = new Date();
-    
-    // if Sunday, advance by 1 day to account for the week starting on Monday
-    if (date.getDay() === 0)
-        date.setDate(date.getDate() + 1);
-        
-    const week = currentWeekNumber(date);
-    const colour = week % 2 === 0 ? 'blue' : 'yellow';
-    
-    return { week, colour };
-};*/
 
 const CheckScheduleIntentHandler = {
     canHandle(handlerInput) {
@@ -52,7 +37,7 @@ const CheckScheduleIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckScheduleIntent';
     },
     handle(handlerInput) {
-        const speakOutput = impl.checkSchedule();
+        const speakOutput = impl.checkSchedule(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -66,7 +51,7 @@ const CheckPickupIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckPickupIntent';
     },
     handle(handlerInput) {
-        const speakOutput = impl.checkPickup();
+        const speakOutput = impl.checkPickup(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -79,8 +64,7 @@ const SkillDisabledEventHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
     },
     handle(handlerInput) {
-        const userId = handlerInput.requestEnvelope.context.System.user.userId;
-        // TODO
+        impl.deZone(handlerInput.requestEnvelope)
     },
 };
 
