@@ -1,6 +1,18 @@
 const currentWeekNumber = require('current-week-number');
 const db = require('./db');
 
+module.exports.zone = async (requestEnvelope) => {
+
+    const zone = requestEnvelope.request.intent.slots.zone.value;
+
+    if (zone != 'blue' && zone != 'yellow')
+        return `${zone} is not a valid zone. Valid zones are blue or yellow. Please try again.`
+
+    const userId = requestEnvelope.context.System.user.userId;
+    
+    return await db.getZone(userId);
+};
+
 const getWeek = () => {
     
     const date = new Date();
@@ -13,18 +25,6 @@ const getWeek = () => {
     const colour = week % 2 === 0 ? 'blue' : 'yellow';
     
     return { week, colour };
-};
-
-module.exports.zone = async (requestEnvelope) => {
-
-    const zone = requestEnvelope.request.intent.slots.zone.value;
-
-    const userId = requestEnvelope.context.System.user.userId;
-    
-
-    const tmp = await db.getZone(zone);
-
-    return tmp;
 };
 
 module.exports.checkSchedule = (requestEnvelope) => {

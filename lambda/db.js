@@ -1,11 +1,13 @@
 const AWS = require('aws-sdk');
 const STS = new AWS.STS({ apiVersion: '2011-06-15' });
 
+const TABLE = 'VaughanZones'
+
 const getCredentials = () => {
     
     return STS.assumeRole({
         RoleArn: 'arn:aws:iam::136274050493:role/Lambda',
-        RoleSessionName: 'VaughanWasteCollectionSchedule'
+        RoleSessionName: 'WasteCollectionScheduleSession'
     }, (err, res) => {
         if (err) {
             console.log('AssumeRole FAILED: ', err);
@@ -34,10 +36,10 @@ module.exports.getZone = async (userId) => {
     const params = {
         Key: {
             userId: {
-                S: 'valerie'
+                S: userId
             }
         }, 
-        TableName: "VaughanZones"
+        TableName: TABLE
     };
 
     return new Promise((resolve, reject) => {
