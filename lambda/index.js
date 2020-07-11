@@ -22,8 +22,8 @@ const ZoneIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ZoneIntent';
     },
-    handle(handlerInput) {
-        const speakOutput = impl.zone(handlerInput.requestEnvelope);
+    async handle(handlerInput) {
+        const speakOutput = await impl.zone(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt('I\'m listening. Try again.')
@@ -57,15 +57,6 @@ const CheckPickupIntentHandler = {
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
-};
-
-const SkillDisabledEventHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
-    },
-    handle(handlerInput) {
-        impl.deZone(handlerInput.requestEnvelope)
-    },
 };
 
 const HelpIntentHandler = {
@@ -105,6 +96,15 @@ const SessionEndedRequestHandler = {
         // Any cleanup logic goes here.
         return handlerInput.responseBuilder.getResponse();
     }
+};
+
+const SkillDisabledEventHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
+    },
+    handle(handlerInput) {
+        impl.deZone(handlerInput.requestEnvelope)
+    },
 };
 
 // The intent reflector is used for interaction model testing and debugging.
@@ -153,10 +153,10 @@ exports.handler = Alexa.SkillBuilders.custom()
         ZoneIntentHandler,
         CheckScheduleIntentHandler,
         CheckPickupIntentHandler,
-        SkillDisabledEventHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
+        SkillDisabledEventHandler,
         IntentReflectorHandler, // make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
     )
     .addErrorHandlers(

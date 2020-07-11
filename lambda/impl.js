@@ -1,4 +1,5 @@
 const currentWeekNumber = require('current-week-number');
+const db = require('./db');
 
 const getWeek = () => {
     
@@ -14,13 +15,13 @@ const getWeek = () => {
     return { week, colour };
 };
 
-module.exports.zone = (requestEnvelope) => {
+module.exports.zone = async (requestEnvelope) => {
 
     const userId = requestEnvelope.context.System.user.userId;
 
-    // TODO
+    const zone = await db.getZone(userId);
 
-    return 'to do';
+    return zone;
 };
 
 module.exports.checkSchedule = (requestEnvelope) => {
