@@ -23,10 +23,10 @@ const ZoneIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ZoneIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'TODO';
+        const speakOutput = impl.zone(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
     }
 };
@@ -37,7 +37,7 @@ const CheckScheduleIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckScheduleIntent';
     },
     handle(handlerInput) {
-        const speakOutput = impl.checkSchedule();
+        const speakOutput = impl.checkSchedule(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -51,7 +51,7 @@ const CheckPickupIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckPickupIntent';
     },
     handle(handlerInput) {
-        const speakOutput = impl.checkPickup();
+        const speakOutput = impl.checkPickup(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
@@ -64,8 +64,7 @@ const SkillDisabledEventHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AlexaSkillEvent.SkillDisabled';
     },
     handle(handlerInput) {
-        const userId = handlerInput.requestEnvelope.context.System.user.userId;
-        // TODO
+        impl.deZone(handlerInput.requestEnvelope)
     },
 };
 
