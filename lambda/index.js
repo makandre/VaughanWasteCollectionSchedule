@@ -66,10 +66,7 @@ const CheckPickupIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckPickupIntent';
     },
     handle(handlerInput) {
-        
-        const week = getWeek();
-        
-        const speakOutput = `It is garbage pickup week if you live in a ${week.colour} zone.`;
+        const speakOutput = impl.checkPickup();
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
