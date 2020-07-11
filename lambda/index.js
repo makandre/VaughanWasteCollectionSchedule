@@ -36,8 +36,8 @@ const CheckScheduleIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CheckScheduleIntent';
     },
-    handle(handlerInput) {
-        const speakOutput = impl.checkSchedule(handlerInput.requestEnvelope);
+    async handle(handlerInput) {
+        const speakOutput = await impl.checkSchedule(handlerInput.requestEnvelope);
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')

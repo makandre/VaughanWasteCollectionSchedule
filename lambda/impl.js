@@ -29,11 +29,21 @@ const getWeek = () => {
     return { week, colour };
 };
 
-module.exports.checkSchedule = (requestEnvelope) => {
+module.exports.checkSchedule = async (requestEnvelope) => {
     
     const week = getWeek();
-        
-    return `Week ${week.week} is a ${week.colour} week.`;
+    let answer = `a ${week.colour}`;
+
+    try {
+        const zone = await db.getZone(requestEnvelope.context.System.user.userId);
+        if (zone)
+            answer = (zone === week.colour ? '' : 'not ') + 'a garbage pickup';
+    }
+    catch (err) {
+        console.warn('Failed to get zone: ' + err.message);
+    }
+
+    return `Week ${week.week} is ${answer} week.`;
 };
 
 module.exports.checkPickup = (requestEnvelope) => {
