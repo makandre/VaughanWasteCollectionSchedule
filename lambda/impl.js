@@ -12,7 +12,7 @@ module.exports.zone = async (requestEnvelope) => {
 
     await db.setZone(requestEnvelope.context.System.user.userId, zone);
     
-    return 'Ok, I\'ll remember that. Now, how may I help you?';
+    return 'Ok, I\'ll remember that. Now, what would you like to know?';
 };
 
 const getWeek = () => {
