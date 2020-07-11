@@ -5,7 +5,7 @@ module.exports.zone = async (requestEnvelope) => {
 
     const zone = requestEnvelope.request.intent.slots.zone.value;
 
-    if (zone != 'blue' && zone != 'yellow')
+    if (zone !== 'blue' && zone !== 'yellow')
         return `${zone} is not a valid zone. Valid zones are blue or yellow. Please try again.`
 
     const userId = requestEnvelope.context.System.user.userId;
