@@ -1,82 +1,16 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
-          "examplePhrases": [
-            "Alexa, open Vaughan waste collection",
-            "What week is it?",
-            "Is it garbage pickup week?"
-          ],
-          "keywords": [
-            "Vaughan",
-            "waste",
-            "collection",
-            "schedule",
-            "garbage",
-            "recycle",
-            "recycling",
-            "pickup",
-            "day",
-            "days",
-            "week",
-            "weeks"
-          ],
-          "name": "Vaughan Waste Collection Schedule",
-          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Vaughan, Ontario, Canada.",
-          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
-        },
-        "en-CA": {
-          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
-          "examplePhrases": [
-            "Alexa, open Vaughan waste collection",
-            "What week is it?",
-            "Is it garbage pickup week?"
-          ],
-          "keywords": [
-            "Vaughan",
-            "waste",
-            "collection",
-            "schedule",
-            "garbage",
-            "recycle",
-            "recycling",
-            "pickup",
-            "day",
-            "days",
-            "week",
-            "weeks"
-          ],
-          "name": "Vaughan Waste Collection Schedule",
-          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Vaughan, Ontario, Canada.",
-          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
-          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
-        }
-      },
-      "automaticDistribution": {
-        "isActive": false
-      },
-      "isAvailableWorldwide": false,
-      "testingInstructions": "For reference: city of Vaughan waste collection schedule https://www.vaughan.ca/services/residential/solid_waste_management/collection_schedule/Pages/default.aspx\n\nNo other special instructions",
-      "category": "ORGANIZERS_AND_ASSISTANTS",
-      "distributionCountries": [
-        "CA",
-        "US"
-      ]
-    },
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:576697798695:function:047c5e23-55a9-472b-bdba-67f340274491:Release_3"
+          "uri": "arn:aws:lambda:us-east-1:576697798695:function:047c5e23-55a9-472b-bdba-67f340274491:Release_4"
         },
         "interfaces": []
       }
     },
     "events": {
       "endpoint": {
-        "uri": "arn:aws:lambda:us-east-1:576697798695:function:047c5e23-55a9-472b-bdba-67f340274491:Release_3"
+        "uri": "arn:aws:lambda:us-east-1:576697798695:function:047c5e23-55a9-472b-bdba-67f340274491:Release_4"
       },
       "subscriptions": [
         {
@@ -87,14 +21,82 @@
     "manifestVersion": "1.0",
     "privacyAndCompliance": {
       "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
       "locales": {
         "en-US": {},
         "en-CA": {}
       },
-      "containsAds": false,
-      "isExportCompliant": true,
-      "isChildDirected": false,
       "usesPersonalInfo": false
+    },
+    "publishingInformation": {
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "ORGANIZERS_AND_ASSISTANTS",
+      "distributionCountries": [
+        "CA",
+        "US"
+      ],
+      "isAvailableWorldwide": false,
+      "locales": {
+        "en-US": {
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Vaughan, Ontario, Canada.",
+          "examplePhrases": [
+            "Alexa, open Vaughan waste collection",
+            "I live in a blue zone",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Vaughan",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/8e35/cb4725a56d1e43e6adcbfac4695d0b40/APP_ICON_LARGE?versionId=OChomMjtD7cky4qWg.yg1yMHvzX.8C8G&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T174155Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=5dc15019341fcbe6d2327eca818d12dbbeeddc381f3b04d157bfab5e63f5cde9",
+          "name": "Vaughan Waste Collection Schedule",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2157/1fda835fc7c5446684e745a21a79ac34/APP_ICON?versionId=uRDhpBQJ_pZCQi8Qo4ojtmCbfs2kTlBm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T174155Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=46d06235c1a954c46ac5b57103cd0c4b63a75f9995965778e055d2f31e83ef93",
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "updatesDescription": "You can tell Alexa if you live in a blue zone or a yellow zone"
+        },
+        "en-CA": {
+          "description": "An Alexa skill to tell you whether it is currently a blue week or a yellow week for waste collection in Vaughan, Ontario, Canada.",
+          "examplePhrases": [
+            "Alexa, open Vaughan waste collection",
+            "I live in a blue zone",
+            "Is it garbage pickup week?"
+          ],
+          "keywords": [
+            "Vaughan",
+            "waste",
+            "collection",
+            "schedule",
+            "garbage",
+            "recycle",
+            "recycling",
+            "pickup",
+            "day",
+            "days",
+            "week",
+            "weeks"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/8e35/cb4725a56d1e43e6adcbfac4695d0b40/APP_ICON_LARGE?versionId=OChomMjtD7cky4qWg.yg1yMHvzX.8C8G&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T174155Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=5dc15019341fcbe6d2327eca818d12dbbeeddc381f3b04d157bfab5e63f5cde9",
+          "name": "Vaughan Waste Collection Schedule",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2157/1fda835fc7c5446684e745a21a79ac34/APP_ICON?versionId=uRDhpBQJ_pZCQi8Qo4ojtmCbfs2kTlBm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200724T174155Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QHE4P6AMV%2F20200724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=46d06235c1a954c46ac5b57103cd0c4b63a75f9995965778e055d2f31e83ef93",
+          "summary": "An Alexa skill to tell you whether it is currently a blue week or a yellow week",
+          "updatesDescription": "You can tell Alexa if you live in a blue zone or a yellow zone"
+        }
+      },
+      "testingInstructions": "No special instructions"
     }
   }
 }
