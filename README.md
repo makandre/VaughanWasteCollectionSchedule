@@ -1,2 +1,1 @@
 # Vaughan Waste Collection Schedule
-
